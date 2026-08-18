@@ -1,0 +1,11 @@
+ESP32-S3 CONNECTION TEST
+2026-07-27
+
+[PASS] USB MSC: VID_303A / PID_4002
+[PASS] Drive: F: / FAT32 / 15.6 GB
+[PASS] Files: config.json, REC_*.bin
+[PASS] USB-TTL: CH340 / COM12
+[PASS] Serial open: 460800 baud / 8N1
+
+[INFO] UART RX: 0 bytes in 10 seconds
+[INFO] Data function not marked passed

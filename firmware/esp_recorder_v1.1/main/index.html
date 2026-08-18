@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>ESP Recorder</title>
+<style>
+body{font-family:-apple-system,sans-serif;margin:0;padding:16px;max-width:640px;margin:0 auto;}
+h1{font-size:20px;margin:8px 0 16px;}
+h2{font-size:16px;margin:0 0 8px;}
+.card{background:#f5f5f5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.row{display:flex;justify-content:space-between;padding:4px 0;font-size:14px;}
+.on{color:#0a8a00;}.off{color:#888;}
+label{display:block;font-size:13px;color:#555;margin-top:8px;}
+input,select{width:100%;padding:8px;margin-top:4px;box-sizing:border-box;font-size:14px;}
+button{padding:9px 14px;margin:6px 6px 0 0;font-size:14px;cursor:pointer;}
+.file{padding:6px 0;border-bottom:1px solid #ddd;font-size:13px;}
+.file a{color:#06c;text-decoration:none;}
+</style>
+</head>
+<body>
+<h1>ESP WiFi 记录仪</h1>
+<div class=card>
+<h2>设备状态</h2>
+<div class=row><span>AP 模式</span><span id=ap>-</span></div>
+<div class=row><span>AP SSID</span><span id=apssid_status>-</span></div>
+<div class=row><span>AP IP</span><span id=apip_status>-</span></div>
+<div class=row><span>STA 状态</span><span id=sta>-</span></div>
+<div class=row><span>STA SSID</span><span id=ssid>-</span></div>
+<div class=row><span>SD 卡</span><span id=sd>-</span></div>
+<div class=row><span>记录状态</span><span id=rec>-</span></div>
+<div class=row><span>落盘文件</span><span id=fileopen>-</span></div>
+<div class=row><span>丢字节数</span><span id=drops>0</span></div>
+<div class=row><span>写入字节数</span><span id=total>0</span></div>
+<div class=row><span>CH1 UART 状态</span><span id=ch1ready>-</span></div>
+<div class=row><span>CH1 UART RX / TX</span><span><b id=ch1rx>0</b> / <b id=ch1tx>0</b></span></div>
+<div class=row><span>CH2 UART 状态</span><span id=ch2ready>-</span></div>
+<div class=row><span>CH2 UART RX / TX</span><span><b id=ch2rx>0</b> / <b id=ch2tx>0</b></span></div>
+<div class=row><span>数据路由</span><span id=routeenabled>-</span></div>
+<div class=row><span>CH1 → CH2 / 丢失</span><span><b id=route12>0</b> / <b id=route12drop>0</b></span></div>
+<div class=row><span>CH2 → CH1 / 丢失</span><span><b id=route21>0</b> / <b id=route21drop>0</b></span></div>
+<div class=row><span>CH1 记录 / 丢失</span><span><b id=ch1total>0</b> / <b id=ch1drops>0</b></span></div>
+<div class=row><span>CH2 记录 / 丢失</span><span><b id=ch2total>0</b> / <b id=ch2drops>0</b></span></div>
+</div>
+<div class=card>
+<h2>热点配置 (AP)</h2>
+<label>AP SSID（留空=默认 ESP_Recorder_XXXX）
+<input id=apssid_input type=text maxlength=31>
+</label>
+<label>AP 密码（留空=开放热点，无需密码）
+<input id=appass type=password maxlength=63>
+</label>
+<label>AP IP（默认 192.168.4.1）
+<input id=apip_input type=text placeholder=192.168.4.1 pattern=^\d{1,3}(\.\d{1,3}){3}$>
+</label>
+<button onclick=saveAp()>保存并重启热点</button>
+<p style=margin:6px 0 0;color:#888;font-size:12px>改 IP 后需重新连接热点</p>
+</div>
+<div class=card>
+<h2>WiFi 配网 (STA)</h2>
+<label>SSID<input id=wssid type=text placeholder=WiFi名称></label>
+<label>加密方式
+<select id=wauth onchange=onAuthChange()>
+<option value=0>开放（无密码）</option>
+<option value=3 selected>WPA2-PSK</option>
+<option value=6>WPA3-PSK</option>
+<option value=7>WPA2/WPA3 过渡</option>
+</select>
+</label>
+<label>密码<input id=wpass type=password placeholder=WiFi密码></label>
+<button onclick=saveWifi()>保存并连接</button>
+</div>
+<div class=card>
+<h2>实时数据 (TX / RX)</h2>
+<label>发送通道
+<select id=txchannel>
+<option value=1>CH1 - UART0 (TX43 / RX44)</option>
+<option value=2>CH2 - UART2 (TX17 / RX18)</option>
+</select>
+</label>
+<textarea id=txdata placeholder="要发送的 HEX 字符串，如 01 03 00 00 00 0A" style="width:100%;height:60px;font-family:monospace;font-size:13px;padding:6px;box-sizing:border-box;"></textarea>
+<div style=margin:6px 0>
+<button onclick=sendTx()>发送 TX</button>
+<button onclick=clearStream()>清空显示</button>
+</div>
+<label style=display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px;color:#555>
+Stream gap (ms):
+<input id=streamgap type=number min=1 max=1000 step=1 value=100 style=width:80px>
+<button onclick=saveStreamGap() style=margin:0>保存</button>
+<span id=streamgapsaved style=color:#888;font-size:12px></span>
+</label>
+<div id=stream style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:6px;height:260px;overflow:auto;font-family:monospace;font-size:12px;line-height:1.5;">等待数据...</div>
+</div>
+<div class=card>
+<h2>设备控制</h2>
+<button onclick=startRec()>开始记录</button>
+<button onclick=stopRec()>停止记录</button>
+<button onclick=reboot() style=background:#d33;color:#fff;border:0>重启设备</button>
+</div>
+<div class=card>
+<h2>记录文件</h2>
+<div id=files>加载中...</div>
+<button onclick=refreshFiles()>刷新列表</button>
+</div>
+<script>
+let sinceSeq=0;
+let streamGapMs=100;
+let liveLines=[];           // {ts, text}
+let pollCount=0;
+let lastRecvPerf=performance.now();
+const MAX_LINES=500;
+let lineSeq=0;
+let lastItemTs=0;
+
+function makeLine(text){
+  const d=document.createElement('div');
+  d.className='line';
+  d.textContent=text;
+  return d;
+}
+function makeGap(label){
+  const d=document.createElement('div');
+  d.className='gap';
+  d.style.cssText='color:#999;font-style:italic;padding:2px 0;border-top:1px dashed #ddd;margin:2px 0';
+  d.textContent=label;
+  return d;
+}
+function trimLines(){
+  if(liveLines.length<=MAX_LINES) return;
+  liveLines=liveLines.slice(-MAX_LINES);
+  const el=document.getElementById('stream');
+  el.replaceChildren(...liveLines.map(x=>x.node));
+  el.scrollTop=el.scrollHeight;
+}
+
+async function api(p,o){const r=await fetch(p,o);return await r.json();}
+
+async function refreshStatus(){
+  try{
+    const s=await api('/api/status');
+    document.getElementById('ap').innerHTML=s.ap?'<span class=on>已开启</span>':'<span class=off>未开启</span>';
+    document.getElementById('apssid_status').textContent=s.ap_ssid||'-';
+    document.getElementById('apip_status').textContent=s.ap_ip||'-';
+    document.getElementById('sta').innerHTML=s.sta_connected?'<span class=on>已连接</span>':'<span class=off>未连接</span>';
+    document.getElementById('ssid').textContent=s.sta_ssid||'-';
+    document.getElementById('sd').innerHTML=s.sd?'<span class=on>已挂载</span>':'<span class=off>未挂载</span>';
+    document.getElementById('rec').innerHTML=s.recording?'<span class=on>记录中</span>':'<span class=off>空闲</span>';
+    document.getElementById('fileopen').textContent=s.file_open?'已打开':'未打开';
+    document.getElementById('drops').textContent=(s.rec_drop_count||0);
+    document.getElementById('total').textContent=(s.rec_total_bytes||0);
+    document.getElementById('ch1drops').textContent=(s.ch1_drop_count||0);
+    document.getElementById('ch2drops').textContent=(s.ch2_drop_count||0);
+    document.getElementById('ch1total').textContent=(s.ch1_total_bytes||0);
+    document.getElementById('ch2total').textContent=(s.ch2_total_bytes||0);
+    document.getElementById('ch1ready').innerHTML=s.uart_ch1_ready?'<span class=on>已启动</span>':'<span class=off>失败</span>';
+    document.getElementById('ch2ready').innerHTML=s.uart_ch2_ready?'<span class=on>已启动</span>':'<span class=off>失败</span>';
+    document.getElementById('ch1rx').textContent=(s.uart_ch1_rx_bytes||0);
+    document.getElementById('ch2rx').textContent=(s.uart_ch2_rx_bytes||0);
+    document.getElementById('ch1tx').textContent=(s.uart_ch1_tx_bytes||0);
+    document.getElementById('ch2tx').textContent=(s.uart_ch2_tx_bytes||0);
+    document.getElementById('routeenabled').innerHTML=s.route_enabled?'<span class=on>已开启</span>':'<span class=off>未开启</span>';
+    document.getElementById('route12').textContent=(s.route_ch1_to_ch2_bytes||0);
+    document.getElementById('route21').textContent=(s.route_ch2_to_ch1_bytes||0);
+    document.getElementById('route12drop').textContent=(s.route_ch1_to_ch2_drop_bytes||0);
+    document.getElementById('route21drop').textContent=(s.route_ch2_to_ch1_drop_bytes||0);
+    if(typeof s.stream_gap_ms==='number' && s.stream_gap_ms!==streamGapMs){
+      streamGapMs=s.stream_gap_ms;
+      document.getElementById('streamgap').value=streamGapMs;
+    }
+  }catch(e){console.error(e);}
+}
+
+async function onAuthChange(){
+  const v=document.getElementById('wauth').value;
+  const p=document.getElementById('wpass');
+  if(v==='0'){p.value='';p.disabled=true;p.placeholder='开放网络无需密码';}
+  else{p.disabled=false;p.placeholder='WiFi密码';}
+}
+
+async function saveAp(){
+  const ssid=document.getElementById('apssid_input').value;
+  const pass=document.getElementById('appass').value;
+  const ip=document.getElementById('apip_input').value;
+  if(ip && !/^\d{1,3}(\.\d{1,3}){3}$/.test(ip)){alert('IP 格式不正确');return;}
+  const r=await api('/api/ap',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ssid:ssid,pass:pass,ip:ip})});
+  if(r.ok){alert('已保存,正在重启热点...');
+    setTimeout(()=>{window.location='http://'+(ip||'192.168.4.1')+'/';},4000);}
+  else alert('保存失败');
+}
+
+async function saveWifi(){
+  const ssid=document.getElementById('wssid').value;
+  const pass=document.getElementById('wpass').value;
+  const auth=Number(document.getElementById('wauth').value);
+  if(!ssid){alert('请输入SSID');return;}
+  if(auth!==0 && !pass){alert('请输入WiFi密码');return;}
+  const r=await api('/api/wifi',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ssid:ssid,pass:pass,auth:auth})});
+  alert(r.ok?'已保存,正在连接...':'保存失败');
+  setTimeout(refreshStatus,2000);
+}
+
+async function saveStreamGap(){
+  const v=parseInt(document.getElementById('streamgap').value,10);
+  if(!v||v<1||v>1000){alert('范围 1..1000');return;}
+  const r=await api('/api/config/stream_gap',{method:'POST',
+    headers:{'Content-Type':'application/json'},body:JSON.stringify({value:v})});
+  const tag=document.getElementById('streamgapsaved');
+  if(r.ok){
+    streamGapMs=v;
+    tag.textContent='已保存 ('+v+'ms)';
+    setTimeout(()=>{tag.textContent='';},2000);
+  }else{tag.textContent='保存失败';}
+}
+
+async function startRec(){const r=await api('/api/recorder/start',{method:'POST'});
+  alert(r.ok?'开始记录':'失败');refreshStatus();}
+async function stopRec(){const r=await api('/api/recorder/stop',{method:'POST'});
+  alert(r.ok?'停止记录':'失败');refreshStatus();}
+
+async function refreshFiles(){
+  const el=document.getElementById('files');
+  try{
+    const r=await api('/api/files');
+    if(r.files&&r.files.length){
+      el.innerHTML=r.files.map(f=>
+        "<div class=file><a href='/api/file?name="+encodeURIComponent(f.name)+"' download>"
+        +f.name+"</a> ("+f.size+" B) "
+        +"<a href='/api/file?name="+encodeURIComponent(f.name)+"' download style=margin-left:6px>下载</a>"
+        +"<a href='javascript:void(0)' onclick='delFile(\""+f.name+"\")' style=color:#c00;margin-left:6px>删除</a></div>"
+      ).join('');
+    }else{el.innerHTML='<div class=file>暂无文件</div>';}
+  }catch(e){el.innerHTML='加载失败';}
+}
+
+async function delFile(name){
+  if(!confirm('确认删除 '+name+' ？'))return;
+  const r=await api('/api/file/delete?name='+encodeURIComponent(name),{method:'POST'});
+  if(r.ok)refreshFiles();else alert('删除失败');
+}
+
+async function pollStream(){
+  const el=document.getElementById('stream');
+  try{
+    const r=await fetch('/api/stream?since='+sinceSeq);
+    if(r.ok){
+      const j=await r.json();
+      const items=j.items||[];
+      if(items.length){
+        lastRecvPerf=performance.now();
+        for(const it of items){
+          if(lastItemTs!==0 && (it.ts-lastItemTs)>streamGapMs){
+            const g=makeGap('等待数据... ('+(it.ts-lastItemTs)+'ms)');
+            liveLines.push({node:g,ts:it.ts});
+            el.appendChild(g);
+          }
+          const ln=makeLine(it.line.replace(/\n$/,''));
+          liveLines.push({node:ln,ts:it.ts});
+          el.appendChild(ln);
+          lastItemTs=it.ts;
+          sinceSeq=Math.max(sinceSeq,it.seq);
+        }
+        if(j.max_seq) sinceSeq=Math.max(sinceSeq,j.max_seq);
+        el.scrollTop=el.scrollHeight;
+      }
+      pollCount++;
+      if(pollCount>=5){trimLines();pollCount=0;}
+    }
+  }catch(e){}
+  /* 兜底：1.5s 没拉到任何 item 主动插一个 "等待数据..." */
+  if(performance.now()-lastRecvPerf>1500){
+    const g=makeGap('等待数据...');
+    liveLines.push({node:g,ts:0});
+    el.appendChild(g);
+    lastRecvPerf=performance.now();
+    el.scrollTop=el.scrollHeight;
+    if(pollCount>=5){trimLines();pollCount=0;}
+  }
+}
+
+async function clearStream(){
+  const el=document.getElementById('stream');
+  liveLines=[];
+  lastItemTs=0;
+  el.replaceChildren();
+  el.textContent='等待数据...';
+  await api('/api/stream/clear',{method:'POST'});
+}
+
+async function sendTx(){
+  const v=document.getElementById('txdata').value.trim();if(!v)return;
+  const channel=Number(document.getElementById('txchannel').value);
+  const r=await api('/api/send',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({channel:channel,hex:v})});
+  if(!r.ok)alert('发送失败: '+v.length+' 字节');
+}
+
+async function reboot(){
+  if(!confirm('确认重启设备？'))return;
+  await api('/api/reboot',{method:'POST'});
+  alert('设备将在 2 秒后重启');
+}
+
+refreshStatus();refreshFiles();
+setInterval(refreshStatus,2000);
+setInterval(pollStream,200);
+</script>
+</body></html>

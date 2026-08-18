@@ -1,0 +1,451 @@
+﻿Executing action: all (aliases: build)
+Running ninja in directory D:\zhuomian\weite\ESP32\esp_recorder_v1.1\build
+Executing "ninja all"...
+[0/1] Re-running CMake...
+
+-- ccache will be used for faster recompilation
+-- git rev-parse returned 'fatal: not a git repository (or any of the parent directories): .git'
+-- Could not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32s3
+NOTICE: Using component placed at D:\zhuomian\weite\ESP32\esp_recorder_v1.1\components\espressif__tinyusb for dependency "espressif/tinyusb" (introduced by component "espressif/esp_tinyusb")
+
+NOTICE: Using component placed at D:\zhuomian\weite\ESP32\esp_recorder_v1.1\components\espressif__tinyusb for dependency "espressif/tinyusb", specified in D:\zhuomian\weite\ESP32\esp_recorder_v1.1\components\espressif__esp_tinyusb\idf_component.yml
+
+NOTICE: Processing 2 dependencies:
+
+NOTICE: [1/2] espressif/tinyusb (0.18.0~1) (D:\zhuomian\weite\ESP32\esp_recorder_v1.1\components\espressif__tinyusb)
+
+NOTICE: [2/2] idf (5.4.0)
+
+-- Project sdkconfig file D:/zhuomian/weite/ESP32/esp_recorder_v1.1/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- App "esp_recorder_v1.0" version: 1
+-- Adding linker script D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.wdt.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script D:/23178/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_cam esp_driver_dac esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_isp esp_driver_jpeg esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_ppa esp_driver_rmt esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_touch_sens esp_driver_tsens esp_driver_uart esp_driver_usb_serial_jtag esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_security esp_system esp_timer esp_vfs_console esp_wifi espcoredump espressif__esp_tinyusb espressif__tinyusb esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocomm pthread rt sdmmc soc spi_flash spiffs tcp_transport touch_element ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: D:/23178/esp-idf/components/app_trace D:/23178/esp-idf/components/app_update D:/23178/esp-idf/components/bootloader D:/23178/esp-idf/components/bootloader_support D:/23178/esp-idf/components/bt D:/23178/esp-idf/components/cmock D:/23178/esp-idf/components/console D:/23178/esp-idf/components/cxx D:/23178/esp-idf/components/driver D:/23178/esp-idf/components/efuse D:/23178/esp-idf/components/esp-tls D:/23178/esp-idf/components/esp_adc D:/23178/esp-idf/components/esp_app_format D:/23178/esp-idf/components/esp_bootloader_format D:/23178/esp-idf/components/esp_coex D:/23178/esp-idf/components/esp_common D:/23178/esp-idf/components/esp_driver_ana_cmpr D:/23178/esp-idf/components/esp_driver_cam D:/23178/esp-idf/components/esp_driver_dac D:/23178/esp-idf/components/esp_driver_gpio D:/23178/esp-idf/components/esp_driver_gptimer D:/23178/esp-idf/components/esp_driver_i2c D:/23178/esp-idf/components/esp_driver_i2s D:/23178/esp-idf/components/esp_driver_isp D:/23178/esp-idf/components/esp_driver_jpeg D:/23178/esp-idf/components/esp_driver_ledc D:/23178/esp-idf/components/esp_driver_mcpwm D:/23178/esp-idf/components/esp_driver_parlio D:/23178/esp-idf/components/esp_driver_pcnt D:/23178/esp-idf/components/esp_driver_ppa D:/23178/esp-idf/components/esp_driver_rmt D:/23178/esp-idf/components/esp_driver_sdio D:/23178/esp-idf/components/esp_driver_sdm D:/23178/esp-idf/components/esp_driver_sdmmc D:/23178/esp-idf/components/esp_driver_sdspi D:/23178/esp-idf/components/esp_driver_spi D:/23178/esp-idf/components/esp_driver_touch_sens D:/23178/esp-idf/components/esp_driver_tsens D:/23178/esp-idf/components/esp_driver_uart D:/23178/esp-idf/components/esp_driver_usb_serial_jtag D:/23178/esp-idf/components/esp_eth D:/23178/esp-idf/components/esp_event D:/23178/esp-idf/components/esp_gdbstub D:/23178/esp-idf/components/esp_hid D:/23178/esp-idf/components/esp_http_client D:/23178/esp-idf/components/esp_http_server D:/23178/esp-idf/components/esp_https_ota D:/23178/esp-idf/components/esp_https_server D:/23178/esp-idf/components/esp_hw_support D:/23178/esp-idf/components/esp_lcd D:/23178/esp-idf/components/esp_local_ctrl D:/23178/esp-idf/components/esp_mm D:/23178/esp-idf/components/esp_netif D:/23178/esp-idf/components/esp_netif_stack D:/23178/esp-idf/components/esp_partition D:/23178/esp-idf/components/esp_phy D:/23178/esp-idf/components/esp_pm D:/23178/esp-idf/components/esp_psram D:/23178/esp-idf/components/esp_ringbuf D:/23178/esp-idf/components/esp_rom D:/23178/esp-idf/components/esp_security D:/23178/esp-idf/components/esp_system D:/23178/esp-idf/components/esp_timer D:/23178/esp-idf/components/esp_vfs_console D:/23178/esp-idf/components/esp_wifi D:/23178/esp-idf/components/espcoredump D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__esp_tinyusb D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb D:/23178/esp-idf/components/esptool_py D:/23178/esp-idf/components/fatfs D:/23178/esp-idf/components/freertos D:/23178/esp-idf/components/hal D:/23178/esp-idf/components/heap D:/23178/esp-idf/components/http_parser D:/23178/esp-idf/components/idf_test D:/23178/esp-idf/components/ieee802154 D:/23178/esp-idf/components/json D:/23178/esp-idf/components/log D:/23178/esp-idf/components/lwip D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main D:/23178/esp-idf/components/mbedtls D:/23178/esp-idf/components/mqtt D:/23178/esp-idf/components/newlib D:/23178/esp-idf/components/nvs_flash D:/23178/esp-idf/components/nvs_sec_provider D:/23178/esp-idf/components/openthread D:/23178/esp-idf/components/partition_table D:/23178/esp-idf/components/perfmon D:/23178/esp-idf/components/protobuf-c D:/23178/esp-idf/components/protocomm D:/23178/esp-idf/components/pthread D:/23178/esp-idf/components/rt D:/23178/esp-idf/components/sdmmc D:/23178/esp-idf/components/soc D:/23178/esp-idf/components/spi_flash D:/23178/esp-idf/components/spiffs D:/23178/esp-idf/components/tcp_transport D:/23178/esp-idf/components/touch_element D:/23178/esp-idf/components/ulp D:/23178/esp-idf/components/unity D:/23178/esp-idf/components/usb D:/23178/esp-idf/components/vfs D:/23178/esp-idf/components/wear_levelling D:/23178/esp-idf/components/wifi_provisioning D:/23178/esp-idf/components/wpa_supplicant D:/23178/esp-idf/components/xtensa
+-- Configuring done (17.5s)
+-- Generating done (2.5s)
+-- Build files have been written to: D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build
+[1/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/usb_cdc.c.obj
+
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/usb_cdc.c.obj 
+
+ccache C:\Users\23178\.espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/config -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/main -ID:/23178/esp-idf/components/newlib/platform_include -ID:/23178/esp-idf/components/freertos/config/include -ID:/23178/esp-idf/components/freertos/config/include/freertos -ID:/23178/esp-idf/components/freertos/config/xtensa/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/23178/esp-idf/components/freertos/esp_additions/include -ID:/23178/esp-idf/components/esp_hw_support/include -ID:/23178/esp-idf/components/esp_hw_support/include/soc -ID:/23178/esp-idf/components/esp_hw_support/include/soc/esp32s3 -ID:/23178/esp-idf/components/esp_hw_support/dma/include -ID:/23178/esp-idf/components/esp_hw_support/ldo/include -ID:/23178/esp-idf/components/esp_hw_support/debug_probe/include -ID:/23178/esp-idf/components/esp_hw_support/port/esp32s3/. -ID:/23178/esp-idf/components/esp_hw_support/port/esp32s3/include -ID:/23178/esp-idf/components/heap/include -ID:/23178/esp-idf/components/heap/tlsf -ID:/23178/esp-idf/components/log/include -ID:/23178/esp-idf/components/soc/include -ID:/23178/esp-idf/components/soc/esp32s3 -ID:/23178/esp-idf/components/soc/esp32s3/include -ID:/23178/esp-idf/components/soc/esp32s3/register -ID:/23178/esp-idf/components/hal/platform_port/include -ID:/23178/esp-idf/components/hal/esp32s3/include -ID:/23178/esp-idf/components/hal/include -ID:/23178/esp-idf/components/esp_rom/include -ID:/23178/esp-idf/components/esp_rom/esp32s3/include -ID:/23178/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -ID:/23178/esp-idf/components/esp_rom/esp32s3 -ID:/23178/esp-idf/components/esp_common/include -ID:/23178/esp-idf/components/esp_system/include -ID:/23178/esp-idf/components/esp_system/port/soc -ID:/23178/esp-idf/components/esp_system/port/include/private -ID:/23178/esp-idf/components/xtensa/esp32s3/include -ID:/23178/esp-idf/components/xtensa/include -ID:/23178/esp-idf/components/xtensa/deprecated_include -ID:/23178/esp-idf/components/lwip/include -ID:/23178/esp-idf/components/lwip/include/apps -ID:/23178/esp-idf/components/lwip/include/apps/sntp -ID:/23178/esp-idf/components/lwip/lwip/src/include -ID:/23178/esp-idf/components/lwip/port/include -ID:/23178/esp-idf/components/lwip/port/freertos/include -ID:/23178/esp-idf/components/lwip/port/esp32xx/include -ID:/23178/esp-idf/components/lwip/port/esp32xx/include/arch -ID:/23178/esp-idf/components/lwip/port/esp32xx/include/sys -ID:/23178/esp-idf/components/esp_driver_gpio/include -ID:/23178/esp-idf/components/esp_pm/include -ID:/23178/esp-idf/components/mbedtls/port/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/library -ID:/23178/esp-idf/components/mbedtls/esp_crt_bundle/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -ID:/23178/esp-idf/components/esp_app_format/include -ID:/23178/esp-idf/components/esp_bootloader_format/include -ID:/23178/esp-idf/components/app_update/include -ID:/23178/esp-idf/components/bootloader_support/include -ID:/23178/esp-idf/components/bootloader_support/bootloader_flash/include -ID:/23178/esp-idf/components/esp_partition/include -ID:/23178/esp-idf/components/efuse/include -ID:/23178/esp-idf/components/efuse/esp32s3/include -ID:/23178/esp-idf/components/esp_mm/include -ID:/23178/esp-idf/components/spi_flash/include -ID:/23178/esp-idf/components/esp_security/include -ID:/23178/esp-idf/components/pthread/include -ID:/23178/esp-idf/components/esp_timer/include -ID:/23178/esp-idf/components/esp_driver_gptimer/include -ID:/23178/esp-idf/components/esp_ringbuf/include -ID:/23178/esp-idf/components/esp_driver_uart/include -ID:/23178/esp-idf/components/vfs/include -ID:/23178/esp-idf/components/app_trace/include -ID:/23178/esp-idf/components/esp_event/include -ID:/23178/esp-idf/components/nvs_flash/include -ID:/23178/esp-idf/components/esp_driver_pcnt/include -ID:/23178/esp-idf/components/esp_driver_spi/include -ID:/23178/esp-idf/components/esp_driver_mcpwm/include -ID:/23178/esp-idf/components/esp_driver_ana_cmpr/include -ID:/23178/esp-idf/components/esp_driver_i2s/include -ID:/23178/esp-idf/components/sdmmc/include -ID:/23178/esp-idf/components/esp_driver_sdmmc/include -ID:/23178/esp-idf/components/esp_driver_sdspi/include -ID:/23178/esp-idf/components/esp_driver_sdio/include -ID:/23178/esp-idf/components/esp_driver_dac/include -ID:/23178/esp-idf/components/esp_driver_rmt/include -ID:/23178/esp-idf/components/esp_driver_tsens/include -ID:/23178/esp-idf/components/esp_driver_sdm/include -ID:/23178/esp-idf/components/esp_driver_i2c/include -ID:/23178/esp-idf/components/esp_driver_ledc/include -ID:/23178/esp-idf/components/esp_driver_parlio/include -ID:/23178/esp-idf/components/esp_driver_usb_serial_jtag/include -ID:/23178/esp-idf/components/driver/deprecated -ID:/23178/esp-idf/components/driver/i2c/include -ID:/23178/esp-idf/components/driver/touch_sensor/include -ID:/23178/esp-idf/components/driver/twai/include -ID:/23178/esp-idf/components/driver/touch_sensor/esp32s3/include -ID:/23178/esp-idf/components/esp_phy/include -ID:/23178/esp-idf/components/esp_phy/esp32s3/include -ID:/23178/esp-idf/components/esp_vfs_console/include -ID:/23178/esp-idf/components/esp_netif/include -ID:/23178/esp-idf/components/wpa_supplicant/include -ID:/23178/esp-idf/components/wpa_supplicant/port/include -ID:/23178/esp-idf/components/wpa_supplicant/esp_supplicant/include -ID:/23178/esp-idf/components/esp_coex/include -ID:/23178/esp-idf/components/esp_wifi/include -ID:/23178/esp-idf/components/esp_wifi/include/local -ID:/23178/esp-idf/components/esp_wifi/wifi_apps/include -ID:/23178/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -ID:/23178/esp-idf/components/unity/include -ID:/23178/esp-idf/components/unity/unity/src -ID:/23178/esp-idf/components/cmock/CMock/src -ID:/23178/esp-idf/components/console -ID:/23178/esp-idf/components/http_parser -ID:/23178/esp-idf/components/esp-tls -ID:/23178/esp-idf/components/esp-tls/esp-tls-crypto -ID:/23178/esp-idf/components/esp_adc/include -ID:/23178/esp-idf/components/esp_adc/interface -ID:/23178/esp-idf/components/esp_adc/esp32s3/include -ID:/23178/esp-idf/components/esp_adc/deprecated/include -ID:/23178/esp-idf/components/esp_driver_isp/include -ID:/23178/esp-idf/components/esp_driver_cam/include -ID:/23178/esp-idf/components/esp_driver_cam/interface -ID:/23178/esp-idf/components/esp_driver_jpeg/include -ID:/23178/esp-idf/components/esp_driver_ppa/include -ID:/23178/esp-idf/components/esp_eth/include -ID:/23178/esp-idf/components/esp_gdbstub/include -ID:/23178/esp-idf/components/esp_hid/include -ID:/23178/esp-idf/components/tcp_transport/include -ID:/23178/esp-idf/components/esp_http_client/include -ID:/23178/esp-idf/components/esp_http_server/include -ID:/23178/esp-idf/components/esp_https_ota/include -ID:/23178/esp-idf/components/esp_https_server/include -ID:/23178/esp-idf/components/esp_psram/include -ID:/23178/esp-idf/components/esp_lcd/include -ID:/23178/esp-idf/components/esp_lcd/interface -ID:/23178/esp-idf/components/esp_lcd/rgb/include -ID:/23178/esp-idf/components/protobuf-c/protobuf-c -ID:/23178/esp-idf/components/protocomm/include/common -ID:/23178/esp-idf/components/protocomm/include/security -ID:/23178/esp-idf/components/protocomm/include/transports -ID:/23178/esp-idf/components/protocomm/include/crypto/srp6a -ID:/23178/esp-idf/components/protocomm/proto-c -ID:/23178/esp-idf/components/esp_local_ctrl/include -ID:/23178/esp-idf/components/espcoredump/include -ID:/23178/esp-idf/components/espcoredump/include/port/xtensa -ID:/23178/esp-idf/components/wear_levelling/include -ID:/23178/esp-idf/components/fatfs/diskio -ID:/23178/esp-idf/components/fatfs/src -ID:/23178/esp-idf/components/fatfs/vfs -ID:/23178/esp-idf/components/idf_test/include -ID:/23178/esp-idf/components/idf_test/include/esp32s3 -ID:/23178/esp-idf/components/ieee802154/include -ID:/23178/esp-idf/components/json/cJSON -ID:/23178/esp-idf/components/mqtt/esp-mqtt/include -ID:/23178/esp-idf/components/nvs_sec_provider/include -ID:/23178/esp-idf/components/perfmon/include -ID:/23178/esp-idf/components/rt/include -ID:/23178/esp-idf/components/spiffs/include -ID:/23178/esp-idf/components/touch_element/include -ID:/23178/esp-idf/components/usb/include -ID:/23178/esp-idf/components/wifi_provisioning/include -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb/src -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__esp_tinyusb/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=D:/zhuomian/weite/ESP32/esp_recorder_v1.1=. -fmacro-prefix-map=D:/23178/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -DCFG_TUSB_MCU=OPT_MCU_ESP32S3 -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/usb_cdc.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\usb_cdc.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/usb_cdc.c.obj -c D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/usb_cdc.c
+In file included from D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/usb_cdc.c:4:
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__esp_tinyusb/include/tusb_cdc_acm.h:21:2: error: #error "TinyUSB CDC driver must be enabled in menuconfig"
+   21 | #error "TinyUSB CDC driver must be enabled in menuconfig"
+      |  ^~~~~
+In file included from D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb/src/tusb.h:73,
+                 from D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__esp_tinyusb/include/tinyusb.h:11,
+                 from D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/usb_cdc.c:3:
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb/src/device/usbd.h:265:58: error: 'MSC_SUBCLASS_SCSI' undeclared here (not in a function); did you mean 'MISC_SUBCLASS_COMMON'?
+  265 |   9, TUSB_DESC_INTERFACE, _itfnum, 0, 2, TUSB_CLASS_MSC, MSC_SUBCLASS_SCSI, MSC_PROTOCOL_BOT, _stridx,\
+      |                                                          ^~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/usb_cdc.c:34:5: note: in expansion of macro 'TUD_MSC_DESCRIPTOR'
+   34 |     TUD_MSC_DESCRIPTOR(ITF_NUM_MSC, 0, EDPT_MSC_OUT, EDPT_MSC_IN, TUD_OPT_HIGH_SPEED ? 512 : 64),
+      |     ^~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb/src/device/usbd.h:265:77: error: 'MSC_PROTOCOL_BOT' undeclared here (not in a function); did you mean 'MISC_PROTOCOL_IAD'?
+  265 |   9, TUSB_DESC_INTERFACE, _itfnum, 0, 2, TUSB_CLASS_MSC, MSC_SUBCLASS_SCSI, MSC_PROTOCOL_BOT, _stridx,\
+
+      |                                                                             ^~~~~~~~~~~~~~~~
+
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/usb_cdc.c:34:5: note: in expansion of macro 'TUD_MSC_DESCRIPTOR'
+
+   34 |     TUD_MSC_DESCRIPTOR(ITF_NUM_MSC, 0, EDPT_MSC_OUT, EDPT_MSC_IN, TUD_OPT_HIGH_SPEED ? 512 : 64),
+
+      |     ^~~~~~~~~~~~~~~~~~
+
+[2/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/data_recorder.c.obj
+
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/data_recorder.c.obj 
+
+ccache C:\Users\23178\.espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin\xtensa-esp32s3-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/config -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/main -ID:/23178/esp-idf/components/newlib/platform_include -ID:/23178/esp-idf/components/freertos/config/include -ID:/23178/esp-idf/components/freertos/config/include/freertos -ID:/23178/esp-idf/components/freertos/config/xtensa/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -ID:/23178/esp-idf/components/freertos/esp_additions/include -ID:/23178/esp-idf/components/esp_hw_support/include -ID:/23178/esp-idf/components/esp_hw_support/include/soc -ID:/23178/esp-idf/components/esp_hw_support/include/soc/esp32s3 -ID:/23178/esp-idf/components/esp_hw_support/dma/include -ID:/23178/esp-idf/components/esp_hw_support/ldo/include -ID:/23178/esp-idf/components/esp_hw_support/debug_probe/include -ID:/23178/esp-idf/components/esp_hw_support/port/esp32s3/. -ID:/23178/esp-idf/components/esp_hw_support/port/esp32s3/include -ID:/23178/esp-idf/components/heap/include -ID:/23178/esp-idf/components/heap/tlsf -ID:/23178/esp-idf/components/log/include -ID:/23178/esp-idf/components/soc/include -ID:/23178/esp-idf/components/soc/esp32s3 -ID:/23178/esp-idf/components/soc/esp32s3/include -ID:/23178/esp-idf/components/soc/esp32s3/register -ID:/23178/esp-idf/components/hal/platform_port/include -ID:/23178/esp-idf/components/hal/esp32s3/include -ID:/23178/esp-idf/components/hal/include -ID:/23178/esp-idf/components/esp_rom/include -ID:/23178/esp-idf/components/esp_rom/esp32s3/include -ID:/23178/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -ID:/23178/esp-idf/components/esp_rom/esp32s3 -ID:/23178/esp-idf/components/esp_common/include -ID:/23178/esp-idf/components/esp_system/include -ID:/23178/esp-idf/components/esp_system/port/soc -ID:/23178/esp-idf/components/esp_system/port/include/private -ID:/23178/esp-idf/components/xtensa/esp32s3/include -ID:/23178/esp-idf/components/xtensa/include -ID:/23178/esp-idf/components/xtensa/deprecated_include -ID:/23178/esp-idf/components/lwip/include -ID:/23178/esp-idf/components/lwip/include/apps -ID:/23178/esp-idf/components/lwip/include/apps/sntp -ID:/23178/esp-idf/components/lwip/lwip/src/include -ID:/23178/esp-idf/components/lwip/port/include -ID:/23178/esp-idf/components/lwip/port/freertos/include -ID:/23178/esp-idf/components/lwip/port/esp32xx/include -ID:/23178/esp-idf/components/lwip/port/esp32xx/include/arch -ID:/23178/esp-idf/components/lwip/port/esp32xx/include/sys -ID:/23178/esp-idf/components/esp_driver_gpio/include -ID:/23178/esp-idf/components/esp_pm/include -ID:/23178/esp-idf/components/mbedtls/port/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/library -ID:/23178/esp-idf/components/mbedtls/esp_crt_bundle/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -ID:/23178/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -ID:/23178/esp-idf/components/esp_app_format/include -ID:/23178/esp-idf/components/esp_bootloader_format/include -ID:/23178/esp-idf/components/app_update/include -ID:/23178/esp-idf/components/bootloader_support/include -ID:/23178/esp-idf/components/bootloader_support/bootloader_flash/include -ID:/23178/esp-idf/components/esp_partition/include -ID:/23178/esp-idf/components/efuse/include -ID:/23178/esp-idf/components/efuse/esp32s3/include -ID:/23178/esp-idf/components/esp_mm/include -ID:/23178/esp-idf/components/spi_flash/include -ID:/23178/esp-idf/components/esp_security/include -ID:/23178/esp-idf/components/pthread/include -ID:/23178/esp-idf/components/esp_timer/include -ID:/23178/esp-idf/components/esp_driver_gptimer/include -ID:/23178/esp-idf/components/esp_ringbuf/include -ID:/23178/esp-idf/components/esp_driver_uart/include -ID:/23178/esp-idf/components/vfs/include -ID:/23178/esp-idf/components/app_trace/include -ID:/23178/esp-idf/components/esp_event/include -ID:/23178/esp-idf/components/nvs_flash/include -ID:/23178/esp-idf/components/esp_driver_pcnt/include -ID:/23178/esp-idf/components/esp_driver_spi/include -ID:/23178/esp-idf/components/esp_driver_mcpwm/include -ID:/23178/esp-idf/components/esp_driver_ana_cmpr/include -ID:/23178/esp-idf/components/esp_driver_i2s/include -ID:/23178/esp-idf/components/sdmmc/include -ID:/23178/esp-idf/components/esp_driver_sdmmc/include -ID:/23178/esp-idf/components/esp_driver_sdspi/include -ID:/23178/esp-idf/components/esp_driver_sdio/include -ID:/23178/esp-idf/components/esp_driver_dac/include -ID:/23178/esp-idf/components/esp_driver_rmt/include -ID:/23178/esp-idf/components/esp_driver_tsens/include -ID:/23178/esp-idf/components/esp_driver_sdm/include -ID:/23178/esp-idf/components/esp_driver_i2c/include -ID:/23178/esp-idf/components/esp_driver_ledc/include -ID:/23178/esp-idf/components/esp_driver_parlio/include -ID:/23178/esp-idf/components/esp_driver_usb_serial_jtag/include -ID:/23178/esp-idf/components/driver/deprecated -ID:/23178/esp-idf/components/driver/i2c/include -ID:/23178/esp-idf/components/driver/touch_sensor/include -ID:/23178/esp-idf/components/driver/twai/include -ID:/23178/esp-idf/components/driver/touch_sensor/esp32s3/include -ID:/23178/esp-idf/components/esp_phy/include -ID:/23178/esp-idf/components/esp_phy/esp32s3/include -ID:/23178/esp-idf/components/esp_vfs_console/include -ID:/23178/esp-idf/components/esp_netif/include -ID:/23178/esp-idf/components/wpa_supplicant/include -ID:/23178/esp-idf/components/wpa_supplicant/port/include -ID:/23178/esp-idf/components/wpa_supplicant/esp_supplicant/include -ID:/23178/esp-idf/components/esp_coex/include -ID:/23178/esp-idf/components/esp_wifi/include -ID:/23178/esp-idf/components/esp_wifi/include/local -ID:/23178/esp-idf/components/esp_wifi/wifi_apps/include -ID:/23178/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -ID:/23178/esp-idf/components/unity/include -ID:/23178/esp-idf/components/unity/unity/src -ID:/23178/esp-idf/components/cmock/CMock/src -ID:/23178/esp-idf/components/console -ID:/23178/esp-idf/components/http_parser -ID:/23178/esp-idf/components/esp-tls -ID:/23178/esp-idf/components/esp-tls/esp-tls-crypto -ID:/23178/esp-idf/components/esp_adc/include -ID:/23178/esp-idf/components/esp_adc/interface -ID:/23178/esp-idf/components/esp_adc/esp32s3/include -ID:/23178/esp-idf/components/esp_adc/deprecated/include -ID:/23178/esp-idf/components/esp_driver_isp/include -ID:/23178/esp-idf/components/esp_driver_cam/include -ID:/23178/esp-idf/components/esp_driver_cam/interface -ID:/23178/esp-idf/components/esp_driver_jpeg/include -ID:/23178/esp-idf/components/esp_driver_ppa/include -ID:/23178/esp-idf/components/esp_eth/include -ID:/23178/esp-idf/components/esp_gdbstub/include -ID:/23178/esp-idf/components/esp_hid/include -ID:/23178/esp-idf/components/tcp_transport/include -ID:/23178/esp-idf/components/esp_http_client/include -ID:/23178/esp-idf/components/esp_http_server/include -ID:/23178/esp-idf/components/esp_https_ota/include -ID:/23178/esp-idf/components/esp_https_server/include -ID:/23178/esp-idf/components/esp_psram/include -ID:/23178/esp-idf/components/esp_lcd/include -ID:/23178/esp-idf/components/esp_lcd/interface -ID:/23178/esp-idf/components/esp_lcd/rgb/include -ID:/23178/esp-idf/components/protobuf-c/protobuf-c -ID:/23178/esp-idf/components/protocomm/include/common -ID:/23178/esp-idf/components/protocomm/include/security -ID:/23178/esp-idf/components/protocomm/include/transports -ID:/23178/esp-idf/components/protocomm/include/crypto/srp6a -ID:/23178/esp-idf/components/protocomm/proto-c -ID:/23178/esp-idf/components/esp_local_ctrl/include -ID:/23178/esp-idf/components/espcoredump/include -ID:/23178/esp-idf/components/espcoredump/include/port/xtensa -ID:/23178/esp-idf/components/wear_levelling/include -ID:/23178/esp-idf/components/fatfs/diskio -ID:/23178/esp-idf/components/fatfs/src -ID:/23178/esp-idf/components/fatfs/vfs -ID:/23178/esp-idf/components/idf_test/include -ID:/23178/esp-idf/components/idf_test/include/esp32s3 -ID:/23178/esp-idf/components/ieee802154/include -ID:/23178/esp-idf/components/json/cJSON -ID:/23178/esp-idf/components/mqtt/esp-mqtt/include -ID:/23178/esp-idf/components/nvs_sec_provider/include -ID:/23178/esp-idf/components/perfmon/include -ID:/23178/esp-idf/components/rt/include -ID:/23178/esp-idf/components/spiffs/include -ID:/23178/esp-idf/components/touch_element/include -ID:/23178/esp-idf/components/usb/include -ID:/23178/esp-idf/components/wifi_provisioning/include -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__tinyusb/src -ID:/23178/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos -ID:/zhuomian/weite/ESP32/esp_recorder_v1.1/components/espressif__esp_tinyusb/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=D:/zhuomian/weite/ESP32/esp_recorder_v1.1=. -fmacro-prefix-map=D:/23178/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -DCFG_TUSB_MCU=OPT_MCU_ESP32S3 -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/data_recorder.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\data_recorder.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/data_recorder.c.obj -c D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c
+In file included from D:/23178/esp-idf/components/log/include/esp_log.h:15,
+                 from D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:15:
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c: In function 'recorder_stop':
+D:/23178/esp-idf/components/log/include/esp_log_color.h:98:31: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   98 | #define LOG_COLOR_E           ""
+      |                               ^~
+D:/23178/esp-idf/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_E'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:182:86: note: in expansion of macro 'LOG_FORMAT'
+  182 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:113:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  113 | #define ESP_LOGW( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_WARN,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:524:9: note: in expansion of macro 'ESP_LOGW'
+  524 |         ESP_LOGW(TAG, "recording stopped, dropped %u bytes during run", s_drop_count);
+      |         ^~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log_color.h:99:31: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+   99 | #define LOG_COLOR_W           ""
+      |                               ^~
+D:/23178/esp-idf/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_W'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:183:86: note: in expansion of macro 'LOG_FORMAT'
+  183 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:113:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  113 | #define ESP_LOGW( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_WARN,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:524:9: note: in expansion of macro 'ESP_LOGW'
+  524 |         ESP_LOGW(TAG, "recording stopped, dropped %u bytes during run", s_drop_count);
+      |         ^~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log_color.h:101:31: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  101 | #define LOG_COLOR_D           ""
+      |                               ^~
+D:/23178/esp-idf/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_D'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:184:86: note: in expansion of macro 'LOG_FORMAT'
+  184 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:113:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  113 | #define ESP_LOGW( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_WARN,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:524:9: note: in expansion of macro 'ESP_LOGW'
+  524 |         ESP_LOGW(TAG, "recording stopped, dropped %u bytes during run", s_drop_count);
+      |         ^~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log_color.h:102:31: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  102 | #define LOG_COLOR_V           ""
+      |                               ^~
+D:/23178/esp-idf/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_V'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:185:86: note: in expansion of macro 'LOG_FORMAT'
+  185 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:113:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  113 | #define ESP_LOGW( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_WARN,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:524:9: note: in expansion of macro 'ESP_LOGW'
+  524 |         ESP_LOGW(TAG, "recording stopped, dropped %u bytes during run", s_drop_count);
+      |         ^~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log_color.h:100:31: error: format '%u' expects argument of type 'unsigned int', but argument 6 has type 'uint32_t' {aka 'long unsigned int'} [-Werror=format=]
+  100 | #define LOG_COLOR_I           ""
+      |                               ^~
+D:/23178/esp-idf/components/log/include/esp_log.h:62:37: note: in expansion of macro 'LOG_COLOR_I'
+   62 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:186:86: note: in expansion of macro 'LOG_FORMAT'
+  186 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:205:38: note: in expansion of macro 'ESP_LOG_LEVEL'
+  205 |         if (_ESP_LOG_ENABLED(level)) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                      ^~~~~~~~~~~~~
+D:/23178/esp-idf/components/log/include/esp_log.h:113:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  113 | #define ESP_LOGW( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_WARN,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+D:/zhuomian/weite/ESP32/esp_recorder_v1.1/main/data_recorder.c:524:9: note: in expansion of macro 'ESP_LOGW'
+  524 |         ESP_LOGW(TAG, "recording stopped, dropped %u bytes during run", s_drop_count);
+
+      |         ^~~~~~~~
+
+cc1.exe: some warnings being treated as errors
+
+[3/12] Performing build step for 'bootloader'
+
+[0/1] Re-running CMake...
+
+-- Building ESP-IDF components for target esp32s3
+-- Project sdkconfig file D:/zhuomian/weite/ESP32/esp_recorder_v1.1/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Adding linker script D:/23178/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Bootloader project name: "bootloader" version: 1
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.wdt.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script D:/23178/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script D:/23178/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.ld
+-- Adding linker script D:/23178/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.rom.ld
+-- Components: bootloader bootloader_support efuse esp_app_format esp_bootloader_format esp_common esp_hw_support esp_rom esp_security esp_system esptool_py freertos hal log main micro-ecc newlib partition_table soc spi_flash xtensa
+-- Component paths: D:/23178/esp-idf/components/bootloader D:/23178/esp-idf/components/bootloader_support D:/23178/esp-idf/components/efuse D:/23178/esp-idf/components/esp_app_format D:/23178/esp-idf/components/esp_bootloader_format D:/23178/esp-idf/components/esp_common D:/23178/esp-idf/components/esp_hw_support D:/23178/esp-idf/components/esp_rom D:/23178/esp-idf/components/esp_security D:/23178/esp-idf/components/esp_system D:/23178/esp-idf/components/esptool_py D:/23178/esp-idf/components/freertos D:/23178/esp-idf/components/hal D:/23178/esp-idf/components/log D:/23178/esp-idf/components/bootloader/subproject/main D:/23178/esp-idf/components/bootloader/subproject/components/micro-ecc D:/23178/esp-idf/components/newlib D:/23178/esp-idf/components/partition_table D:/23178/esp-idf/components/soc D:/23178/esp-idf/components/spi_flash D:/23178/esp-idf/components/xtensa
+-- Configuring done (15.3s)
+-- Generating done (0.9s)
+-- Build files have been written to: D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/bootloader
+[1/116] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_timestamp.c.obj
+
+[2/116] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_timestamp_common.c.obj
+
+[3/116] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_lock.c.obj
+
+[4/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj
+
+[5/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_crc.c.obj
+
+[6/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_spiflash.c.obj
+
+[7/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_efuse.c.obj
+
+[8/116] Building ASM object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_longjmp.S.obj
+
+[9/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_systimer.c.obj
+
+[10/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_print.c.obj
+
+[11/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_uart.c.obj
+
+[12/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_gpio.c.obj
+
+[13/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_wdt.c.obj
+
+[14/116] Building ASM object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_writeback_esp32s3.S.obj
+
+[15/116] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_cache_esp32s2_esp32s3.c.obj
+
+[16/116] Building C object esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj
+
+[17/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_memory_utils.c.obj
+
+[18/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_clk.c.obj
+
+[19/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/cpu.c.obj
+
+[20/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/esp_cpu_intr.c.obj
+
+[21/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_sleep.c.obj
+
+[22/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/cpu_region_protect.c.obj
+
+[23/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_clk_init.c.obj
+
+[24/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_init.c.obj
+
+[25/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/chip_info.c.obj
+
+[26/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_table.c.obj
+
+[27/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/efuse_controller/keys/with_key_purposes/esp_efuse_api_key.c.obj
+
+[28/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_utility.c.obj
+
+[29/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_mem.c.obj
+
+[30/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random.c.obj
+
+[31/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_fields.c.obj
+
+[32/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_fields.c.obj
+
+[33/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_init.c.obj
+
+[34/116] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_err.c.obj
+
+[35/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_api.c.obj
+
+[36/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_rtc_calib.c.obj
+
+[37/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common.c.obj
+
+[38/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_encrypt.c.obj
+
+[39/116] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_utility.c.obj
+
+[40/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_efuse.c.obj
+
+[41/116] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32s3/rtc_time.c.obj
+
+[42/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj
+
+[43/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/flash_qio_mode.c.obj
+
+[44/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/secure_boot.c.obj
+
+[45/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash_config_esp32s3.c.obj
+
+[46/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash.c.obj
+
+[47/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random_esp32s3.c.obj
+
+[48/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_utility.c.obj
+
+[49/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_loader.c.obj
+
+[50/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_partitions.c.obj
+
+[51/116] Building C object esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj
+
+[52/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/hal_utils.c.obj
+
+[53/116] Linking C static library esp-idf\log\liblog.a
+
+[54/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_init.c.obj
+
+[55/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32s3/bootloader_soc.c.obj
+
+[56/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp_image_format.c.obj
+
+[57/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32s3/bootloader_sha.c.obj
+
+[58/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/efuse_hal.c.obj
+
+[59/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32s3/efuse_hal.c.obj
+
+[60/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console.c.obj
+
+[61/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_panic.c.obj
+
+[62/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/mmu_hal.c.obj
+
+[63/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/mpu_hal.c.obj
+
+[64/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console_loader.c.obj
+
+[65/116] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj
+
+[66/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/lldesc.c.obj
+
+[67/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/gpio_periph.c.obj
+
+[68/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/sdm_periph.c.obj
+
+[69/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/lcd_periph.c.obj
+
+[70/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/ledc_periph.c.obj
+
+[71/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/dport_access_common.c.obj
+
+[72/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/uart_periph.c.obj
+
+[73/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/pcnt_periph.c.obj
+
+[74/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/gdma_periph.c.obj
+
+[75/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/spi_periph.c.obj
+
+[76/116] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/cache_hal.c.obj
+
+[77/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/i2s_periph.c.obj
+
+[78/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/adc_periph.c.obj
+
+[79/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/dedic_gpio_periph.c.obj
+
+[80/116] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32s3/bootloader_esp32s3.c.obj
+
+[81/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/interrupts.c.obj
+
+[82/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/sdmmc_periph.c.obj
+
+[83/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/timer_periph.c.obj
+
+[84/116] Building C object esp-idf/micro-ecc/CMakeFiles/__idf_micro-ecc.dir/uECC_verify_antifault.c.obj
+
+[85/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/temperature_sensor_periph.c.obj
+
+[86/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/mpi_periph.c.obj
+
+[87/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/mcpwm_periph.c.obj
+
+[88/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/i2c_periph.c.obj
+
+[89/116] Generating project_elf_src_esp32s3.c
+
+[90/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/touch_sensor_periph.c.obj
+
+[91/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/rmt_periph.c.obj
+
+[92/116] Linking C static library esp-idf\esp_rom\libesp_rom.a
+
+[93/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/wdt_periph.c.obj
+
+[94/116] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bootloader_start.c.obj
+
+[95/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/usb_dwc_periph.c.obj
+
+[96/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/rtc_io_periph.c.obj
+
+[97/116] Building C object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xt_trax.c.obj
+
+[98/116] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32s3/twai_periph.c.obj
+
+[99/116] Building C object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/eri.c.obj
+
+[100/116] Building C object CMakeFiles/bootloader.elf.dir/project_elf_src_esp32s3.c.obj
+
+[101/116] Linking C static library esp-idf\esp_common\libesp_common.a
+
+[102/116] Linking C static library esp-idf\esp_hw_support\libesp_hw_support.a
+
+[103/116] Linking C static library esp-idf\esp_system\libesp_system.a
+
+[104/116] Linking C static library esp-idf\efuse\libefuse.a
+
+[105/116] Linking C static library esp-idf\bootloader_support\libbootloader_support.a
+
+[106/116] Linking C static library esp-idf\esp_bootloader_format\libesp_bootloader_format.a
+
+[107/116] Linking C static library esp-idf\spi_flash\libspi_flash.a
+
+[108/116] Linking C static library esp-idf\hal\libhal.a
+
+[109/116] Linking C static library esp-idf\micro-ecc\libmicro-ecc.a
+
+[110/116] Linking C static library esp-idf\soc\libsoc.a
+
+[111/116] Linking C static library esp-idf\xtensa\libxtensa.a
+
+[112/116] Linking C static library esp-idf\main\libmain.a
+
+[113/116] Linking C executable bootloader.elf
+
+[114/116] Generating binary image from built executable
+
+esptool.py v4.12.0
+
+
+Creating esp32s3 image...
+
+
+Merged 2 ELF sections
+
+
+Successfully created esp32s3 image.
+
+
+Generated D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/bootloader/bootloader.bin
+
+[115/116] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\zhuomian\weite\ESP32\esp_recorder_v1.1\build\bootloader\esp-idf\esptool_py && C:\Users\23178\.espressif\python_env\idf5.4_py3.8_env\Scripts\python.exe D:/23178/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/zhuomian/weite/ESP32/esp_recorder_v1.1/build/bootloader/bootloader.bin"
+
+Bootloader binary size 0x5210 bytes. 0x2df0 bytes (36%) free.
+
+
+
+ninja: build stopped: subcommand failed.
+
+python.exe : [0;33mHINT: The issue is better to resolve by replacing format specifiers to 'PRI'-family macros (include
+ <inttypes.h> header file).[0m
+At C:\Users\23178\AppData\Local\Temp\esp_idf_activate_23178\activate_yc57ixzm.ps1:11 char:19
++ function idf.py { &python "$Env:IDF_PATH\tools\idf.py" $args }
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([0;33mHINT: Th...ader file).[0m:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ninja failed with exit code 1, output of the command is in the D:\zhuomian\weite\ESP32\esp_recorder_v1.1\build\log\idf_
+py_stderr_output_66212 and D:\zhuomian\weite\ESP32\esp_recorder_v1.1\build\log\idf_py_stdout_output_66212

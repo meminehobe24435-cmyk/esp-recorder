@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>维特智能 WiFi 数据记录仪</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- 模拟模式横幅 -->
+<div id="sim-banner" class="sim-banner">
+  ⚠ 本地预览模式，当前数据为模拟数据 — 连接真实设备后页面将自动切换为设备模式
+</div>
+
+<!-- 顶部栏 -->
+<div class="header">
+  <div>
+    <h1>维特智能 WiFi 数据记录仪</h1>
+    <div class="subtitle">ESP32-S3 · 双模WiFi · 实时数据透传 · SD卡记录</div>
+  </div>
+  <div class="header-right">
+    <span id="runtime" class="runtime">运行 0h 00m 00s</span>
+  </div>
+</div>
+
+<!-- 标签导航 -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="status">📊 设备状态</button>
+  <button class="tab-btn" data-tab="data">📡 实时数据</button>
+  <button class="tab-btn" data-tab="record">⏺ 记录控制</button>
+  <button class="tab-btn" data-tab="uart">⚙ UART配置</button>
+  <button class="tab-btn" data-tab="wifi">📶 WiFi配网</button>
+  <button class="tab-btn" data-tab="files">📁 文件管理</button>
+</div>
+
+<!-- ==================== 面板1: 设备状态 ==================== -->
+<div id="panel-status" class="tab-panel active">
+  <div class="card">
+    <div class="card-title">系统状态总览 <button class="btn btn-sm btn-outline" id="btn-refresh-status" style="float:right">🔄 刷新</button></div>
+    <div class="status-grid">
+      <div class="status-item"><div class="label">AP 热点</div><div class="value" id="st-ap">-</div></div>
+      <div class="status-item"><div class="label">AP SSID</div><div class="value" id="st-apssid">-</div></div>
+      <div class="status-item"><div class="label">AP IP</div><div class="value" id="st-apip">-</div></div>
+      <div class="status-item"><div class="label">STA 连接</div><div class="value" id="st-sta">-</div></div>
+      <div class="status-item"><div class="label">STA IP</div><div class="value" id="st-staip">-</div></div>
+      <div class="status-item"><div class="label">UART 波特率</div><div class="value" id="st-baud">-</div></div>
+      <div class="status-item"><div class="label">SD 卡</div><div class="value" id="st-sd">-</div></div>
+      <div class="status-item"><div class="label">SD 可用</div><div class="value" id="st-sdcap">-</div></div>
+      <div class="status-item"><div class="label">记录状态</div><div class="value" id="st-rec">-</div></div>
+      <div class="status-item"><div class="label">当前文件</div><div class="value" id="st-file" style="font-size:12px">-</div></div>
+      <div class="status-item"><div class="label">USB 模式</div><div class="value" id="st-usb">-</div></div>
+      <div class="status-item"><div class="label">服务器</div><div class="value" id="st-srv">-</div></div>
+      <div class="status-item"><div class="label">运行时间</div><div class="value" id="st-uptime">-</div></div>
+      <div class="status-item"><div class="label">剩余内存</div><div class="value" id="st-heap">-</div></div>
+      <div class="status-item"><div class="label">固件版本</div><div class="value" id="st-fw">-</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 面板2: 实时数据 ==================== -->
+<div id="panel-data" class="tab-panel">
+  <div class="card">
+    <div class="card-title">实时数据监控</div>
+    <div class="terminal-toolbar">
+      <label><input type="checkbox" id="chk-autoscroll" checked> 自动滚动</label>
+      <label><input type="checkbox" id="chk-hex" checked> HEX显示</label>
+      <label><input type="checkbox" id="chk-ts" checked> 时间戳</label>
+      <button class="btn btn-sm btn-outline" id="btn-pause">⏸ 暂停</button>
+      <button class="btn btn-sm btn-outline" id="btn-clear">🗑 清空</button>
+    </div>
+    <div class="terminal" id="terminal">等待数据...</div>
+    <div class="terminal-stats">
+      <span>RX: <span id="stat-rxbytes">0 B</span></span>
+      <span>TX: <span id="stat-txbytes">0 B</span></span>
+      <span>行数: <span id="stat-lines">0</span></span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">数据发送</div>
+    <div class="form-group">
+      <label>发送内容 (HEX格式，如 01 03 00 00 00 0A)</label>
+      <textarea id="tx-input" placeholder="输入十六进制数据..." style="height:60px;font-family:monospace;font-size:13px;"></textarea>
+      <div id="tx-hint" style="font-size:12px;margin-top:4px;color:var(--gray-400);">请输入十六进制字符串</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btn-send">📤 发送</button>
+      <button class="btn btn-outline" id="btn-send-clear">清空</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 面板3: 记录控制 ==================== -->
+<div id="panel-record" class="tab-panel">
+  <div class="card">
+    <div class="card-title">记录控制</div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--gray-50);border-radius:8px;margin-bottom:12px">
+      <span class="rec-indicator stopped" id="rec-indicator"></span>
+      <span style="font-weight:600;" id="rec-status-text">空闲</span>
+    </div>
+    <div class="status-grid">
+      <div class="status-item"><div class="label">当前文件</div><div class="value" id="rec-filename">-</div></div>
+      <div class="status-item"><div class="label">已记录字节</div><div class="value" id="rec-bytes">0 B</div></div>
+      <div class="status-item"><div class="label">记录时长</div><div class="value" id="rec-dur">-</div></div>
+      <div class="status-item"><div class="label">丢字节数</div><div class="value" id="rec-drops">0</div></div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-success" id="rec-btn-start">⏺ 开始记录</button>
+      <button class="btn btn-danger" id="rec-btn-stop" disabled>⏹ 停止记录</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 面板4: UART配置 ==================== -->
+<div id="panel-uart" class="tab-panel">
+  <div class="card">
+    <div class="card-title">UART 参数配置</div>
+    <div class="form-group">
+      <label>波特率</label>
+      <select id="uart-baud">
+        <option value="9600">9600</option>
+        <option value="19200">19200</option>
+        <option value="38400">38400</option>
+        <option value="57600">57600</option>
+        <option value="115200" selected>115200</option>
+        <option value="230400">230400</option>
+        <option value="460800">460800</option>
+        <option value="921600">921600</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>数据位</label>
+      <select id="uart-bits">
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8" selected>8</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>停止位</label>
+      <select id="uart-stop">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>校验位</label>
+      <select id="uart-parity">
+        <option value="none" selected>None (无校验)</option>
+        <option value="odd">Odd (奇校验)</option>
+        <option value="even">Even (偶校验)</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="btn-uart-save">💾 保存配置</button>
+  </div>
+</div>
+
+<!-- ==================== 面板5: WiFi配网 ==================== -->
+<div id="panel-wifi" class="tab-panel">
+  <div class="card">
+    <div class="card-title">WiFi 连接</div>
+    <div style="margin-bottom:12px">状态: <span id="wifi-status" class="value off">未连接</span></div>
+    <div class="form-group">
+      <label>WiFi SSID</label>
+      <input type="text" id="wifi-ssid" placeholder="输入 WiFi 名称" maxlength="31">
+    </div>
+    <div class="form-group">
+      <label>加密方式</label>
+      <select id="wifi-auth">
+        <option value="0">开放 (Open)</option>
+        <option value="3" selected>WPA2-PSK</option>
+        <option value="6">WPA3-PSK</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>密码</label>
+      <input type="password" id="wifi-pass" placeholder="输入 WiFi 密码" maxlength="63">
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btn-connect">🔗 连接</button>
+      <button class="btn btn-outline" id="btn-disconnect">🔌 断开</button>
+      <button class="btn btn-outline" id="btn-scan">🔍 扫描</button>
+    </div>
+    <div class="scan-results" id="scan-results" style="display:none;"></div>
+    <script>document.getElementById('btn-scan').addEventListener('click',function(){document.getElementById('scan-results').style.display='block';})</script>
+  </div>
+</div>
+
+<!-- ==================== 面板6: 文件管理 ==================== -->
+<div id="panel-files" class="tab-panel">
+  <div class="card">
+    <div class="card-title">
+      记录文件
+      <button class="btn btn-sm btn-outline" id="btn-refresh-files" style="float:right">🔄 刷新</button>
+    </div>
+    <div style="margin:8px 0;font-size:13px;color:var(--gray-600);">
+      <span id="file-count">0 个文件</span> · 总计 <span id="file-total">0 B</span>
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="file-table">
+      <thead><tr><th>文件名</th><th>大小</th><th>时间</th><th>操作</th></tr></thead>
+      <tbody id="file-list">
+        <tr><td colspan="4" style="text-align:center;padding:16px;color:var(--gray-400);">加载中...</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

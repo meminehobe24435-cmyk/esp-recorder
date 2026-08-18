@@ -1,0 +1,39 @@
+# === 发布包与备份（走 GitHub Releases / 本地保留）===
+releases/
+backup/
+
+# === 构建产物 ===
+**/build/
+**/output/
+**/__pycache__/
+**/.cache/
+**/.pytest_cache/
+**/.dart_tool/
+**/.gradle/
+**/.idea/
+*.iml
+local.properties
+
+# === 二进制 / 归档 ===
+*.apk
+*.zip
+*.rar
+*.7z
+*.bin
+*.elf
+*.map
+*.o
+*.a
+*.so
+*.obj
+*.exe
+
+# === 内嵌仓库历史（本地保留，不进新仓库）===
+.git.bak/
+
+# === 日志 / 临时 ===
+*.log
+*.tmp
+~$*
+.DS_Store
+Thumbs.db
